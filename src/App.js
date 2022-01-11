@@ -1,7 +1,11 @@
 import './App.css';
 // variable defined
 import {useState} from 'react'
-
+import Clear from "./assets/clear.jpg"
+import Cloudy from "./assets/cloudy.jpg"
+import Rain from "./assets/rain.jpg"
+import Snow from "./assets/snow.jpg"
+import Overcast from "./assets/overcast.jpg"
 function App() {
 
       // state variable
@@ -33,7 +37,23 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="app" 
+
+    style={
+      placeInfo.condition?.toLowerCase() === "clear" ||
+      placeInfo.condition?.toLowerCase() === "sunny"
+        ? { backgroundImage: `url(${Clear})` }
+        : placeInfo.condition?.includes("cloudy")
+        ? { backgroundImage: `url(${Cloudy})` }
+        : placeInfo.condition?.toLowerCase().includes("rain")
+        ? { backgroundImage: `url(${Rain})` }
+        : placeInfo.condition?.toLowerCase().includes("snow")
+        ? { backgroundImage: `url(${Snow})` }
+        : { backgroundImage: `url(${Overcast})` }
+    }
+
+
+    >
 
 
       <div className='saerch-input'>
