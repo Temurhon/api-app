@@ -6,7 +6,7 @@ import Cloudy from "./assets/cloudy.jpg"
 import Rain from "./assets/rain.jpg"
 import Snow from "./assets/snow.jpg"
 import Overcast from "./assets/overcast.jpg"
-import SearchIcon from '@mui/icons-material/Search';
+import Search from "./assets/search.png"
 function App() {
 
       // state variable
@@ -70,7 +70,7 @@ function App() {
           value={place}
           onChange={(e) => setPlace(e.target.value)}
         />
-        <button onClick={handleFetch} class="search-button">Search</button>
+        <button onClick={handleFetch} class="search-button"><img src={Search}></img></button>
 
       </div>
 
