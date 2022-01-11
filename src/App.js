@@ -1,16 +1,24 @@
 import './App.css';
 // variable defined
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Clear from "./assets/clear.jpg"
 import Cloudy from "./assets/cloudy.jpg"
 import Rain from "./assets/rain.jpg"
 import Snow from "./assets/snow.jpg"
 import Overcast from "./assets/overcast.jpg"
+import SearchIcon from '@mui/icons-material/Search';
 function App() {
 
       // state variable
       const [place, setPlace] = useState('new york');
       const [placeInfo, setPlaceInfo] = useState({});
+
+  //Display farenheit alongide the data instead of by itself:
+  useEffect(() => {
+  handleFetch();
+  }, [])
+
+
   // function to handle fetch
   const handleFetch = () =>{
 
@@ -56,25 +64,26 @@ function App() {
     >
 
 
-      <div className='saerch-input'>
+      <div className='search-input'>
       <input
           type="text"
           value={place}
           onChange={(e) => setPlace(e.target.value)}
         />
-      <button onClick={handleFetch}>Search</button>
+        <button onClick={handleFetch} class="search-button">Search</button>
+
       </div>
 
       <div className='weather-container'>
 
         <div className='top-p'>
-      <h1>{placeInfo.current}</h1>
+      <h1>{placeInfo.current}°F</h1>
 
 
       <div className='condition-high-low'>
             <h1>{placeInfo.condition}</h1>
-            <h1>{placeInfo.high}</h1>
-            <h1>{placeInfo.low}</h1>
+            <h1>{placeInfo.high}°F</h1>
+            <h1>{placeInfo.low}°F</h1>
         </div>
         </div>
 
